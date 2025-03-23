@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+    <head>
+        <title>Editorial principles</title>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+        <link href="http://www.obdurodon.org/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="http://dh.obdurodon.org/projects.css" rel="stylesheet" type="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <style type="text/css">
+             @font-face {
+                font-family: 'KlimentStdRegular';
+                src: url('http://obdurodon.org/css/fonts/kliment_std-webfont.eot');
+                src: url('http://obdurodon.org/css/fonts/kliment_std-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('http://obdurodon.org/css/fonts/kliment_std-webfont.woff') format('woff'),
+                     url('http://obdurodon.org/css/fonts/kliment_std-webfont.ttf') format('truetype'),
+                     url('http://obdurodon.org/css/fonts/kliment_std-webfont.svg#KlimentStdRegular') format('svg');
+                font-weight: normal;
+                font-style: normal;
+}
+            td:nth-child(1), td:nth-child(4) {text-align: right;}
+            td:nth-child(2), td:nth-child(5) {font-family : KlimentStdRegular;} 
+            .os {font-family : KlimentStdRegular;}
+                 </style>
+    </head>
+    <body>
+        <h1><a class="logo" href="http://www.obdurodon.org">&lt;oo&gt;</a>&#x2192;<a
+                href="index.html" class="logo">&lt;sup&gt;</a>
+            <cite>Codex Suprasliensis</cite></h1>
+        <hr />
+        <p class="boilerplate">
+            <span><strong>Maintained by:</strong> David J. Birnbaum (<a
+                    href="mailto:djbpitt@gmail.com">djbpitt@gmail.com</a>) <a
+                    href="http://creativecommons.org/licenses/by-nc-sa/3.0/" style="outline: none;">
+                    <img src="http://www.obdurodon.org/images/cc/88x31.png"
+                        alt="[Creative Commons BY-NC-SA 3.0 Unported License]"
+                        title="Creative Commons BY-NC-SA 3.0 Unported License"
+                        style="height: 1em; vertical-align: text-bottom;" />
+                </a>
+            </span>
+            <span><strong>Last modified:</strong>
+                2012-06-09T19:43:32+0000</span>
+        </p>
+        <hr />
+        <h2>Editorial principles</h2>
+        <h3>Input files</h3>
+        <p>The ASCII <a href="http://www.helsinki.fi/slaavilaiset/ccmh/suprasliensis.html">CCMH</a>
+            files are used as input, and they are converted programmatically to Unicode and
+            delivered in Word format. The only XML-like markup introduced at this stage is that
+            superscript letters are tagged as <code>&lt;sup&gt;</code> (but see below concerning an
+            error in the end tag). A sample looks like:</p>
+        <pre class="os">1 008v 05 шедъ о̑устрои͑ сꙙ съ ѫ͑жиками свои͑ми.
+1 008v 06 и͑ пришъдъ мѫчениѥ приїмеши въ к&lt;sup&gt;о&lt;\sup&gt;-
+1 008v 07 манѣхъ. нъ не бои͑ сꙙ о͑тъ мѫкъ а͑зъ б&lt;sup&gt;о&lt;\sup&gt;
+1 008v 08 ѥ͑смъ съ тобоѭ̑. и͑ не и͑матъ тебе врѣді-</pre>
+        <h3>XML up-conversion through plain-text search-and-replace</h3>
+        <p>The files are XMLified with the following plain-text search-and-replace operations:</p>
+        <ol>
+            <li>The OCR output encodes superscript letters with the <code>&lt;sup&gt;</code> tag,
+                but erroneously writes the end tag with a backslash instead of a forward slash
+                    (<code>&lt;\sup&gt;</code> instead of <code>&lt;/sup&gt;</code>). We correct
+                this with a global search-and-replace.</li>
+            <li>We programmatically replace all leading white-space characters by matching
+                    <code>^\s+</code> and replacing it with an empty string. This also strips out
+                blank lines.</li>
+            <li>We programmatically match all remaining manuscript lines (<code>^([123]) (\d+)(.)
+                    (\d{2}) (.*)$</code>) and add markup by replacing them with <code>&lt;line
+                    text="\1" folio="\2" side="\3" line="\4"&gt;\5&lt;/line&gt;</code>. Input like
+                <pre class="os">1 008r 18 Мѣсꙙца марта въ е͆ день͗. мѫчениѥ ст͆ааго василиска⁛</pre>
+                is thus converted to:
+                <pre class="os">&lt;line text="1" folio="008" side="r" line="18"&gt;Мѣсꙙца марта въ е͆ день͗. мѫчениѥ ст͆ааго василиска⁛&lt;/line&gt;</pre></li>
+            <li>We manually tag the first line as <code>&lt;title&gt;</code> and wrap the entire
+                file in a <code>&lt;text&gt;</code> root element.</li>
+        </ol>
+        <p>This yields a well-formed XML file that conforms to the following Relax NG schema:</p>
+        <pre>start =
+    element text {
+        element title { text },
+        element line {
+            attribute text { xsd:int },
+            attribute folio { xsd:int },
+            attribute side { "r" | "v" },
+            attribute line { xsd:int },
+            mixed {
+                element sup { text }*
+            }
+        }+
+    }</pre>
+        <h3>Character inventory</h3>
+        <h4>Diacritic analysis</h4>
+        <p>Smooth breathing, apostrophe, and paerok are not clearly distinguished in the Word files.
+            They are, however, in complementary distribution (except for occasional errors in the
+            CCMH source), and we distinguish them as follows. The examples are all taken from
+            line-final position in <a
+                href="http://suprasliensis.obdurodon.org/ljubljana/K02018-009.jpg">folio 9r</a>. See
+            the table below for mappings and additional notes.</p>
+        <h5>Smooth breathing: ll. 4, 20, 21</h5>
+        <p>All encoded as U+0357 COMBINING RIGHT HALF RING ABOVE. We replace those globally with
+            U+0486 COMBINING CYRILLIC PSILI PNEUMATA.</p>
+        <h5>Rough breathing: ll. 6, 9, 11</h5>
+        <p>All encoded as U+0351 COMBINING LEFT HALF RING ABOVE. We replace those globally with
+            U+0485 COMBINING CYRILLIC DASIA PNEUMATA.</p>
+        <h5>Paerok: ll. 7, 29</h5>
+        <p>The instance on l. 7 is encoded as U+02BC MODIFIER LETTER APOSTROPHE and the one on l. 29
+            as a U+035B COMBINING ZIGZAG ABOVE. <em>Both follow a consonant letter.</em></p>
+        <ul>
+            <li>We replace U+02BC MODIFIER LETTER APOSTROPHE <em>when it follows a consonant
+                    letter</em> with U+2E2F VERTICAL TILDE (a spacing character).</li>
+            <li>We replace U+035B COMBINING ZIGZAG ABOVE <em>globally</em> with U+033E COMBINING
+                U+2E2F VERTICAL TILDE (a spacing character).</li>
+        </ul>
+        <h5>Apostrophe: ll. 13, 23</h5>
+        <p>Also encoded as U+02BC MODIFIER LETTER APOSTROPHE, <em>but after a vowel</em>. We replace
+            U+02BC MODIFIER LETTER APOSTROPHE <em>when it follows a vowel letter</em> with U+0313
+            COMBINING COMMA ABOVE (a non-spacing character).</p>
+        <p>The preceding situations are distinct, either because the character in the Word final is
+            generally distinct or because it is distinct in position (after consonant or after
+            vowel). This permits us to automate the replacements. Although the physical position of
+            paerok varies in the manuscript (whether between two characters or above the first of
+            the pair), we standardize in all cases on U+2E2F VERTICAL TILDE (a spacing character).
+            This decision is governed by our desire to privilege the semantics of the text over the
+            appearance, and from that perspective the paerok is conceptually between two characters
+            even when, from a graphic perspective, it might be rendered slightly over the first of
+            them.</p>
+        <h4>Table of errors and corrections</h4>
+        <table border="1">
+            <tr>
+                <th colspan="3">Error in the transcription</th>
+                <th colspan="3">Replaced by</th>
+                <th rowspan="2">Note</th>
+            </tr>
+            <tr>
+                <th>Value</th>
+                <th>Raw</th>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Raw</th>
+                <th>Name</th>
+            </tr>
+            <tr>
+                <th colspan="7">Alphabetic</th>
+            </tr>
+            <tr>
+                <td>U+0437;</td>
+                <td>&#x0437;</td>
+                <td>CYRILLIC SMALL LETTER ZE</td>
+                <td>U+A641</td>
+                <td>&#xA641;</td>
+                <td>CYRILLIC SMALL LETTER ZEMLYA</td>
+                <td>&#xa0;</td>
+            </tr>
+            <tr>
+                <td>U+0479</td>
+                <td>&#x0479;</td>
+                <td>CYRILLIC SMALL LETTER UK</td>
+                <td>U+A64B;</td>
+                <td>&#xA64B;</td>
+                <td>CYRILLIC SMALL LETTER MONOGRAPH UK</td>
+                <td>U+0479 is deprecated because of ambiguity. Digraphic uk should be represented as
+                    two characters in sequence; monographic uk should be represented as U+A64B.</td>
+            </tr>
+            <tr>
+                <td>U+A647</td>
+                <td>&#xA647;</td>
+                <td>CYRILLIC SMALL LETTER IOTA</td>
+                <td>U+0456;</td>
+                <td>&#x0456;</td>
+                <td>CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I</td>
+                <td>U+A647 is used only for transliteration from Glagolitic to Cyrillic.</td>
+            </tr>
+            <tr>
+                <th colspan="7">Punctuation</th>
+            </tr>
+            <tr>
+                <td>U+002E;</td>
+                <td>&#x002E;</td>
+                <td>FULL STOP</td>
+                <td>U+00B7</td>
+                <td>&#x00B7;</td>
+                <td>MIDDLE DOT</td>
+                <td>&#xa0;</td>
+            </tr>
+            <tr>
+                <td>U+2022;</td>
+                <td>&#x2022;</td>
+                <td>BULLET</td>
+                <td>U+00B7</td>
+                <td>&#x00B7;</td>
+                <td>MIDDLE DOT</td>
+                <td>&#xa0;</td>
+            </tr>
+            <tr>
+                <td>U+205B</td>
+                <td>&#x205B;</td>
+                <td>FOUR DOT MARK</td>
+                <td>U+2058</td>
+                <td>&#x2058;</td>
+                <td>FOUR DOT PUNCTUATION</td>
+                <td>&#xa0;</td>
+            </tr>
+            <tr>
+                <th colspan="7">Diacritic</th>
+            </tr>
+            <tr>
+                <td rowspan="2">U+02BC</td>
+                <td rowspan="2"><span style="opacity: .6; color: teal">и</span>&#x02BC;</td>
+                <td rowspan="2">MODIFIER LETTER APOSTROPHE</td>
+                <td>U+0313</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#x0313;</td>
+                <td>COMBINING COMMA ABOVE</td>
+                <td rowspan="2">Replaced by U+0313 COMBINING COMMA ABOVE (a non-spacing character)
+                    when it follows a vowel and by U+2E2F VERTICAL TILDE (a spacing character) when
+                    it follows a consonant.</td>
+            </tr>
+            <tr>
+                <td>U+2E2F</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#x2E2F;</td>
+                <td>VERTICAL TILDE</td>
+            </tr>
+            <tr>
+                <td rowspan="2">U+0311</td>
+                <td rowspan="2"><span style="opacity: .6; color: teal">и</span>&#x0311;</td>
+                <td rowspan="2">COMBINING INVERTED BREVE</td>
+                <td>U+0484</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#x0484;</td>
+                <td>COMBINING CYRILLIC PALATALIZATION</td>
+                <td rowspan="2">We replace U+0311 (COMBINING INVERTED BREVE) automatically by U+0484
+                    (COMBINING CYRILLIC PALATALIZATION) when it follows a consonant and we leave it
+                    alone, as a representation of Cyrillic kamora, when it follows a vowel. It does
+                    not occur in other positions. There are a few genuine ambiguities that will need
+                    to be fixed manually, e.g., <span class="os">благꙑнѫ̑</span> (11v1), where it
+                    should be a palatalization hook on the <span class="os">н</span>. This reflects
+                    a conceptual error in CCMH, which uses a caret (^) for both palatalization of a
+                    preceding consonant and kamora over a following vowel, thus creating an
+                    ambiguity about whether a particular instance of caret associates to the left or
+                    to the right.</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center">Retained without change</td>
+            </tr>
+            <tr>
+                <td>U+0346</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#x0346;</td>
+                <td>COMBINING BRIDGE ABOVE</td>
+                <td>U+A66F</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#xA66F;</td>
+                <td>COMBINING CYRILLIC VZMET</td>
+                <td>U+0346 is documented in Unicode as an <q>addition for IPA.</q></td>
+            </tr>
+            <tr>
+                <td>U+0351</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#x0351;</td>
+                <td>COMBINING LEFT HALF RING ABOVE</td>
+                <td>U+0485</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#x0485;</td>
+                <td>COMBINING CYRILLIC DASIA PNEUMATA</td>
+                <td rowspan="2">U+0351 and U+0357 are documented in Unicode as <q>additions for the
+                        Uralic phonetic alphabet.</q></td>
+            </tr>
+            <tr>
+                <td>U+0357</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#x0357;</td>
+                <td>COMBINING RIGHT HALF RING ABOVE</td>
+                <td>U+0486</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#x0486;</td>
+                <td>COMBINING CYRILLIC PSILI PNEUMATA</td>
+            </tr>
+            <tr>
+                <td>U+035B</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#x035B;</td>
+                <td>COMBINING ZIGZAG ABOVE</td>
+                <td>U+2E2F</td>
+                <td><span style="opacity: .6; color: teal">и</span>&#x2E2F;</td>
+                <td>VERTICAL TILDE</td>
+                <td>&#xa0;</td>
+            </tr>
+        </table>
+        <h3>To add</h3>
+        <p>U+0343 COMBINING GREEK KORONIS, with a preceding space, is used for smooth breathing
+            before upper-case letter. There is no corresponding Cyrillic glyph and the Greek one
+            isn't yet in our fonts. Temporarily replaced by U+02BC MODIFIER LETTER APOSTROPHE,
+            keeping the preceding space.</p>
+        <h3>PROIEL</h3>
+        <p>For <a href="http://www.hf.uio.no/ifikk/english/research/projects/proiel/">PROIEL</a>
+            tagging we strip all diacritics except paerok and the palatalization hook.</p>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'MonomakhUnicode';
+    src: url('./cfonts/MonomakhUnicode.eot');
+    src: url('./cfonts/MonomakhUnicode.eot?#iefix') format('embedded-opentype'),
+	url('./cfonts/MonomakhUnicode.woff2') format('woff2'),
+	url('./cfonts/MonomakhUnicode.woff') format('woff'),
+	url('./cfonts/MonomakhUnicode.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.table td:nth-child(3) {
+	font-size: 19px;
+    font-family: 'MonomakhUnicode', sans-serif;
+}
+
+th:nth-child(1), td:nth-child(1) { 
+	width: 3%;
+}
+
+th:nth-child(5), td:nth-child(5) { 
+	width: 10%;
+}
+
+th:nth-child(2), td:nth-child(2) { 
+    width: 20%; 
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    white-space: normal; 
+}
+
+.container {
+    width: 90%;
+    max-width: none;
+    overflow-x: auto; /* Falls die Tabelle zu breit ist, Scrollbalken aktivieren */
+}

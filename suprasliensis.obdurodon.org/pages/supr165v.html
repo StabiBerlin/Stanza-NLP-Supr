@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+   <head>
+      <title>Iohannes Chrysostomus· In ramos palmarum homilia</title>
+      <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8"/>
+<link href="http://www.obdurodon.org/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="http://suprasliensis.obdurodon.org/css/suprasliensis.css" rel="stylesheet" type="text/css"/>
+<link href="http://suprasliensis.obdurodon.org/css/nav-widgets.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="http://suprasliensis.obdurodon.org/js/magnifier.js">//</script>
+<script type="text/javascript" src="http://suprasliensis.obdurodon.org/js/fonts.js">//</script>
+<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+<meta http-equiv="Content-Style-Type" content="text/css"/>
+</head>
+   <body><h1><a class="logo" href="http://www.obdurodon.org">&lt;oo&gt;</a>&#x2192;<a
+    href="../index.html" class="logo">&lt;supr&gt;</a> <cite>Codex Suprasliensis</cite></h1>
+<hr />
+<p class="boilerplate">
+    <span><strong>Maintained by:</strong> David J. Birnbaum (<a
+        href="mailto:djbpitt@gmail.com">djbpitt@gmail.com</a>) <a
+            href="http://creativecommons.org/licenses/by-nc-sa/3.0/" style="outline: none;">
+            <img src="http://www.obdurodon.org/images/cc/88x31.png"
+                alt="[Creative Commons BY-NC-SA 3.0 Unported License]"
+                title="Creative Commons BY-NC-SA 3.0 Unported License"
+                style="height: 1em; vertical-align: text-bottom;" />
+        </a>
+    </span>
+    <span><strong>Last modified:</strong>
+        
+        2013-01-23T20:24:59+0000</span>
+</p>
+<hr />
+<div id="text"><div id="widgets">
+  <select id="fontChooser" onchange="changeFont(this.options[this.selectedIndex].value);">
+    <option>Choose font</option>
+    <option value="BukyvedeWeb">Bukyvede</option>
+    <option value="KlimentStdWeb">KlimentStd</option>
+    <option value="LazovWeb">Lazov</option>
+    <option value="MenaionWeb">Menaion</option>
+    <option value="suprasal_sansregular">Suprasl</option>
+  </select>
+  <span id="magnifierToggleWrapper">
+    <input id="magnifierToggle" type="checkbox" onclick="toggleMagnifier();"/>
+    <label for="magnifierToggle">Toggle magnifier</label>
+  </span>
+  <form id="folioChooser">
+   <select onChange="location.href=this.options[this.selectedIndex].value;">
+      <option>Go to page</option>
+      <option value="supr001r.html">1r</option>
+      <option value="supr001v.html">1v</option>
+      <option value="supr002r.html">2r</option>
+      <option value="supr002v.html">2v</option>
+      <option value="supr003r.html">3r</option>
+      <option value="supr003v.html">3v</option>
+      <option value="supr004r.html">4r</option>
+      <option value="supr004v.html">4v</option>
+      <option value="supr005r.html">5r</option>
+      <option value="supr005v.html">5v</option>
+      <option value="supr006r.html">6r</option>
+      <option value="supr006v.html">6v</option>
+      <option value="supr007r.html">7r</option>
+      <option value="supr007v.html">7v</option>
+      <option value="supr008r.html">8r</option>
+      <option value="supr008v.html">8v</option>
+      <option value="supr009r.html">9r</option>
+      <option value="supr009v.html">9v</option>
+      <option value="supr010r.html">10r</option>
+      <option value="supr010v.html">10v</option>
+      <option value="supr011r.html">11r</option>
+      <option value="supr011v.html">11v</option>
+      <option value="supr012r.html">12r</option>
+      <option value="supr012v.html">12v</option>
+      <option value="supr013r.html">13r</option>
+      <option value="supr013v.html">13v</option>
+      <option value="supr014r.html">14r</option>
+      <option value="supr014v.html">14v</option>
+      <option value="supr015r.html">15r</option>
+      <option value="supr015v.html">15v</option>
+      <option value="supr016r.html">16r</option>
+      <option value="supr016v.html">16v</option>
+      <option value="supr017r.html">17r</option>
+      <option value="supr017v.html">17v</option>
+      <option value="supr018r.html">18r</option>
+      <option value="supr018v.html">18v</option>
+      <option value="supr019r.html">19r</option>
+      <option value="supr019v.html">19v</option>
+      <option value="supr020r.html">20r</option>
+      <option value="supr020v.html">20v</option>
+      <option value="supr021r.html">21r</option>
+      <option value="supr021v.html">21v</option>
+      <option value="supr022r.html">22r</option>
+      <option value="supr022v.html">22v</option>
+      <option value="supr023r.html">23r</option>
+      <option value="supr023v.html">23v</option>
+      <option value="supr024r.html">24r</option>
+      <option value="supr024v.html">24v</option>
+      <option value="supr025r.html">25r</option>
+      <option value="supr025v.html">25v</option>
+      <option value="supr026r.html">26r</option>
+      <option value="supr026v.html">26v</option>
+      <option value="supr027r.html">27r</option>
+      <option value="supr027v.html">27v</option>
+      <option value="supr028r.html">28r</option>
+      <option value="supr028v.html">28v</option>
+      <option value="supr029r.html">29r</option>
+      <option value="supr029v.html">29v</option>
+      <option value="supr030r.html">30r</option>
+      <option value="supr030v.html">30v</option>
+      <option value="supr031r.html">31r</option>
+      <option value="supr031v.html">31v</option>
+      <option value="supr032r.html">32r</option>
+      <option value="supr032v.html">32v</option>
+      <option value="supr033r.html">33r</option>
+      <option value="supr033v.html">33v</option>
+      <option value="supr034r.html">34r</option>
+      <option value="supr034v.html">34v</option>
+      <option value="supr035r.html">35r</option>
+      <option value="supr035v.html">35v</option>
+      <option value="supr036r.html">36r</option>
+      <option value="supr036v.html">36v</option>
+      <option value="supr037r.html">37r</option>
+      <option value="supr037v.html">37v</option>
+      <option value="supr038r.html">38r</option>
+      <option value="supr038v.html">38v</option>
+      <option value="supr039r.html">39r</option>
+      <option value="supr039v.html">39v</option>
+      <option value="supr040r.html">40r</option>
+      <option value="supr040v.html">40v</option>
+      <option value="supr041r.html">41r</option>
+      <option value="supr041v.html">41v</option>
+      <option value="supr042r.html">42r</option>
+      <option value="supr042v.html">42v</option>
+      <option value="supr043r.html">43r</option>
+      <option value="supr043v.html">43v</option>
+      <option value="supr044r.html">44r</option>
+      <option value="supr044v.html">44v</option>
+      <option value="supr045r.html">45r</option>
+      <option value="supr045v.html">45v</option>
+      <option value="supr046r.html">46r</option>
+      <option value="supr046v.html">46v</option>
+      <option value="supr047r.html">47r</option>
+      <option value="supr047v.html">47v</option>
+      <option value="supr048r.html">48r</option>
+      <option value="supr048v.html">48v</option>
+      <option value="supr049r.html">49r</option>
+      <option value="supr049v.html">49v</option>
+      <option value="supr050r.html">50r</option>
+      <option value="supr050v.html">50v</option>
+      <option value="supr051r.html">51r</option>
+      <option value="supr051v.html">51v</option>
+      <option value="supr052r.html">52r</option>
+      <option value="supr052v.html">52v</option>
+      <option value="supr053r.html">53r</option>
+      <option value="supr053v.html">53v</option>
+      <option value="supr054r.html">54r</option>
+      <option value="supr054v.html">54v</option>
+      <option value="supr055r.html">55r</option>
+      <option value="supr055v.html">55v</option>
+      <option value="supr056r.html">56r</option>
+      <option value="supr056v.html">56v</option>
+      <option value="supr057r.html">57r</option>
+      <option value="supr057v.html">57v</option>
+      <option value="supr058r.html">58r</option>
+      <option value="supr058v.html">58v</option>
+      <option value="supr059r.html">59r</option>
+      <option value="supr059v.html">59v</option>
+      <option value="supr060r.html">60r</option>
+      <option value="supr060v.html">60v</option>
+      <option value="supr061r.html">61r</option>
+      <option value="supr061v.html">61v</option>
+      <option value="supr062r.html">62r</option>
+      <option value="supr062v.html">62v</option>
+      <option value="supr063r.html">63r</option>
+      <option value="supr063v.html">63v</option>
+      <option value="supr064r.html">64r</option>
+      <option value="supr064v.html">64v</option>
+      <option value="supr065r.html">65r</option>
+      <option value="supr065v.html">65v</option>
+      <option value="supr066r.html">66r</option>
+      <option value="supr066v.html">66v</option>
+      <option value="supr067r.html">67r</option>
+      <option value="supr067v.html">67v</option>
+      <option value="supr068r.html">68r</option>
+      <option value="supr068v.html">68v</option>
+      <option value="supr069r.html">69r</option>
+      <option value="supr069v.html">69v</option>
+      <option value="supr070r.html">70r</option>
+      <option value="supr070v.html">70v</option>
+      <option value="supr071r.html">71r</option>
+      <option value="supr071v.html">71v</option>
+      <option value="supr072r.html">72r</option>
+      <option value="supr072v.html">72v</option>
+      <option value="supr073r.html">73r</option>
+      <option value="supr073v.html">73v</option>
+      <option value="supr074r.html">74r</option>
+      <option value="supr074v.html">74v</option>
+      <option value="supr075r.html">75r</option>
+      <option value="supr075v.html">75v</option>
+      <option value="supr076r.html">76r</option>
+      <option value="supr076v.html">76v</option>
+      <option value="supr077r.html">77r</option>
+      <option value="supr077v.html">77v</option>
+      <option value="supr078r.html">78r</option>
+      <option value="supr078v.html">78v</option>
+      <option value="supr079r.html">79r</option>
+      <option value="supr079v.html">79v</option>
+      <option value="supr080r.html">80r</option>
+      <option value="supr080v.html">80v</option>
+      <option value="supr081r.html">81r</option>
+      <option value="supr081v.html">81v</option>
+      <option value="supr082r.html">82r</option>
+      <option value="supr082v.html">82v</option>
+      <option value="supr083r.html">83r</option>
+      <option value="supr083v.html">83v</option>
+      <option value="supr084r.html">84r</option>
+      <option value="supr084v.html">84v</option>
+      <option value="supr085r.html">85r</option>
+      <option value="supr085v.html">85v</option>
+      <option value="supr086r.html">86r</option>
+      <option value="supr086v.html">86v</option>
+      <option value="supr087r.html">87r</option>
+      <option value="supr087v.html">87v</option>
+      <option value="supr088r.html">88r</option>
+      <option value="supr088v.html">88v</option>
+      <option value="supr089r.html">89r</option>
+      <option value="supr089v.html">89v</option>
+      <option value="supr090r.html">90r</option>
+      <option value="supr090v.html">90v</option>
+      <option value="supr091r.html">91r</option>
+      <option value="supr091v.html">91v</option>
+      <option value="supr092r.html">92r</option>
+      <option value="supr092v.html">92v</option>
+      <option value="supr093r.html">93r</option>
+      <option value="supr093v.html">93v</option>
+      <option value="supr094r.html">94r</option>
+      <option value="supr094v.html">94v</option>
+      <option value="supr095r.html">95r</option>
+      <option value="supr095v.html">95v</option>
+      <option value="supr096r.html">96r</option>
+      <option value="supr096v.html">96v</option>
+      <option value="supr097r.html">97r</option>
+      <option value="supr097v.html">97v</option>
+      <option value="supr098r.html">98r</option>
+      <option value="supr098v.html">98v</option>
+      <option value="supr099r.html">99r</option>
+      <option value="supr099v.html">99v</option>
+      <option value="supr100r.html">100r</option>
+      <option value="supr100v.html">100v</option>
+      <option value="supr101r.html">101r</option>
+      <option value="supr101v.html">101v</option>
+      <option value="supr102r.html">102r</option>
+      <option value="supr102v.html">102v</option>
+      <option value="supr103r.html">103r</option>
+      <option value="supr103v.html">103v</option>
+      <option value="supr104r.html">104r</option>
+      <option value="supr104v.html">104v</option>
+      <option value="supr105r.html">105r</option>
+      <option value="supr105v.html">105v</option>
+      <option value="supr106r.html">106r</option>
+      <option value="supr106v.html">106v</option>
+      <option value="supr107r.html">107r</option>
+      <option value="supr107v.html">107v</option>
+      <option value="supr108r.html">108r</option>
+      <option value="supr108v.html">108v</option>
+      <option value="supr109r.html">109r</option>
+      <option value="supr109v.html">109v</option>
+      <option value="supr110r.html">110r</option>
+      <option value="supr110v.html">110v</option>
+      <option value="supr111r.html">111r</option>
+      <option value="supr111v.html">111v</option>
+      <option value="supr112r.html">112r</option>
+      <option value="supr112v.html">112v</option>
+      <option value="supr113r.html">113r</option>
+      <option value="supr113v.html">113v</option>
+      <option value="supr114r.html">114r</option>
+      <option value="supr114v.html">114v</option>
+      <option value="supr115r.html">115r</option>
+      <option value="supr115v.html">115v</option>
+      <option value="supr116r.html">116r</option>
+      <option value="supr116v.html">116v</option>
+      <option value="supr117r.html">117r</option>
+      <option value="supr117v.html">117v</option>
+      <option value="supr118r.html">118r</option>
+      <option value="supr118v.html">118v</option>
+      <option value="supr119r.html">119r</option>
+      <option value="supr119v.html">119v</option>
+      <option value="supr120r.html">120r</option>
+      <option value="supr120v.html">120v</option>
+      <option value="supr121r.html">121r</option>
+      <option value="supr121v.html">121v</option>
+      <option value="supr122r.html">122r</option>
+      <option value="supr122v.html">122v</option>
+      <option value="supr123r.html">123r</option>
+      <option value="supr123v.html">123v</option>
+      <option value="supr124r.html">124r</option>
+      <option value="supr124v.html">124v</option>
+      <option value="supr125r.html">125r</option>
+      <option value="supr125v.html">125v</option>
+      <option value="supr126r.html">126r</option>
+      <option value="supr126v.html">126v</option>
+      <option value="supr127r.html">127r</option>
+      <option value="supr127v.html">127v</option>
+      <option value="supr128r.html">128r</option>
+      <option value="supr128v.html">128v</option>
+      <option value="supr129r.html">129r</option>
+      <option value="supr129v.html">129v</option>
+      <option value="supr130r.html">130r</option>
+      <option value="supr130v.html">130v</option>
+      <option value="supr131r.html">131r</option>
+      <option value="supr131v.html">131v</option>
+      <option value="supr132r.html">132r</option>
+      <option value="supr132v.html">132v</option>
+      <option value="supr133r.html">133r</option>
+      <option value="supr133v.html">133v</option>
+      <option value="supr134r.html">134r</option>
+      <option value="supr134v.html">134v</option>
+      <option value="supr135r.html">135r</option>
+      <option value="supr135v.html">135v</option>
+      <option value="supr136r.html">136r</option>
+      <option value="supr136v.html">136v</option>
+      <option value="supr137r.html">137r</option>
+      <option value="supr137v.html">137v</option>
+      <option value="supr138r.html">138r</option>
+      <option value="supr138v.html">138v</option>
+      <option value="supr139r.html">139r</option>
+      <option value="supr139v.html">139v</option>
+      <option value="supr140r.html">140r</option>
+      <option value="supr140v.html">140v</option>
+      <option value="supr141r.html">141r</option>
+      <option value="supr141v.html">141v</option>
+      <option value="supr142r.html">142r</option>
+      <option value="supr142v.html">142v</option>
+      <option value="supr143r.html">143r</option>
+      <option value="supr143v.html">143v</option>
+      <option value="supr144r.html">144r</option>
+      <option value="supr144v.html">144v</option>
+      <option value="supr145r.html">145r</option>
+      <option value="supr145v.html">145v</option>
+      <option value="supr146r.html">146r</option>
+      <option value="supr146v.html">146v</option>
+      <option value="supr147r.html">147r</option>
+      <option value="supr147v.html">147v</option>
+      <option value="supr148r.html">148r</option>
+      <option value="supr148v.html">148v</option>
+      <option value="supr149r.html">149r</option>
+      <option value="supr149v.html">149v</option>
+      <option value="supr150r.html">150r</option>
+      <option value="supr150v.html">150v</option>
+      <option value="supr151r.html">151r</option>
+      <option value="supr151v.html">151v</option>
+      <option value="supr152r.html">152r</option>
+      <option value="supr152v.html">152v</option>
+      <option value="supr153r.html">153r</option>
+      <option value="supr153v.html">153v</option>
+      <option value="supr154r.html">154r</option>
+      <option value="supr154v.html">154v</option>
+      <option value="supr155r.html">155r</option>
+      <option value="supr155v.html">155v</option>
+      <option value="supr156r.html">156r</option>
+      <option value="supr156v.html">156v</option>
+      <option value="supr157r.html">157r</option>
+      <option value="supr157v.html">157v</option>
+      <option value="supr158r.html">158r</option>
+      <option value="supr158v.html">158v</option>
+      <option value="supr159r.html">159r</option>
+      <option value="supr159v.html">159v</option>
+      <option value="supr160r.html">160r</option>
+      <option value="supr160v.html">160v</option>
+      <option value="supr161r.html">161r</option>
+      <option value="supr161v.html">161v</option>
+      <option value="supr162r.html">162r</option>
+      <option value="supr162v.html">162v</option>
+      <option value="supr163r.html">163r</option>
+      <option value="supr163v.html">163v</option>
+      <option value="supr164r.html">164r</option>
+      <option value="supr164v.html">164v</option>
+      <option value="supr165r.html">165r</option>
+      <option value="supr165v.html">165v</option>
+      <option value="supr166r.html">166r</option>
+      <option value="supr166v.html">166v</option>
+      <option value="supr167r.html">167r</option>
+      <option value="supr167v.html">167v</option>
+      <option value="supr168r.html">168r</option>
+      <option value="supr168v.html">168v</option>
+      <option value="supr169r.html">169r</option>
+      <option value="supr169v.html">169v</option>
+      <option value="supr170r.html">170r</option>
+      <option value="supr170v.html">170v</option>
+      <option value="supr171r.html">171r</option>
+      <option value="supr171v.html">171v</option>
+      <option value="supr172r.html">172r</option>
+      <option value="supr172v.html">172v</option>
+      <option value="supr173r.html">173r</option>
+      <option value="supr173v.html">173v</option>
+      <option value="supr174r.html">174r</option>
+      <option value="supr174v.html">174v</option>
+      <option value="supr175r.html">175r</option>
+      <option value="supr175v.html">175v</option>
+      <option value="supr176r.html">176r</option>
+      <option value="supr176v.html">176v</option>
+      <option value="supr177r.html">177r</option>
+      <option value="supr177v.html">177v</option>
+      <option value="supr178r.html">178r</option>
+      <option value="supr178v.html">178v</option>
+      <option value="supr179r.html">179r</option>
+      <option value="supr179v.html">179v</option>
+      <option value="supr180r.html">180r</option>
+      <option value="supr180v.html">180v</option>
+      <option value="supr181r.html">181r</option>
+      <option value="supr181v.html">181v</option>
+      <option value="supr182r.html">182r</option>
+      <option value="supr182v.html">182v</option>
+      <option value="supr183r.html">183r</option>
+      <option value="supr183v.html">183v</option>
+      <option value="supr184r.html">184r</option>
+      <option value="supr184v.html">184v</option>
+      <option value="supr185r.html">185r</option>
+      <option value="supr185v.html">185v</option>
+      <option value="supr186r.html">186r</option>
+      <option value="supr186v.html">186v</option>
+      <option value="supr187r.html">187r</option>
+      <option value="supr187v.html">187v</option>
+      <option value="supr188r.html">188r</option>
+      <option value="supr188v.html">188v</option>
+      <option value="supr189r.html">189r</option>
+      <option value="supr189v.html">189v</option>
+      <option value="supr190r.html">190r</option>
+      <option value="supr190v.html">190v</option>
+      <option value="supr191r.html">191r</option>
+      <option value="supr191v.html">191v</option>
+      <option value="supr192r.html">192r</option>
+      <option value="supr192v.html">192v</option>
+      <option value="supr193r.html">193r</option>
+      <option value="supr193v.html">193v</option>
+      <option value="supr194r.html">194r</option>
+      <option value="supr194v.html">194v</option>
+      <option value="supr195r.html">195r</option>
+      <option value="supr195v.html">195v</option>
+      <option value="supr196r.html">196r</option>
+      <option value="supr196v.html">196v</option>
+      <option value="supr197r.html">197r</option>
+      <option value="supr197v.html">197v</option>
+      <option value="supr198r.html">198r</option>
+      <option value="supr198v.html">198v</option>
+      <option value="supr199r.html">199r</option>
+      <option value="supr199v.html">199v</option>
+      <option value="supr200r.html">200r</option>
+      <option value="supr200v.html">200v</option>
+      <option value="supr201r.html">201r</option>
+      <option value="supr201v.html">201v</option>
+      <option value="supr202r.html">202r</option>
+      <option value="supr202v.html">202v</option>
+      <option value="supr203r.html">203r</option>
+      <option value="supr203v.html">203v</option>
+      <option value="supr204r.html">204r</option>
+      <option value="supr204v.html">204v</option>
+      <option value="supr205r.html">205r</option>
+      <option value="supr205v.html">205v</option>
+      <option value="supr206r.html">206r</option>
+      <option value="supr206v.html">206v</option>
+      <option value="supr207r.html">207r</option>
+      <option value="supr207v.html">207v</option>
+      <option value="supr208r.html">208r</option>
+      <option value="supr208v.html">208v</option>
+      <option value="supr209r.html">209r</option>
+      <option value="supr209v.html">209v</option>
+      <option value="supr210r.html">210r</option>
+      <option value="supr210v.html">210v</option>
+      <option value="supr211r.html">211r</option>
+      <option value="supr211v.html">211v</option>
+      <option value="supr212r.html">212r</option>
+      <option value="supr212v.html">212v</option>
+      <option value="supr213r.html">213r</option>
+      <option value="supr213v.html">213v</option>
+      <option value="supr214r.html">214r</option>
+      <option value="supr214v.html">214v</option>
+      <option value="supr215r.html">215r</option>
+      <option value="supr215v.html">215v</option>
+      <option value="supr216r.html">216r</option>
+      <option value="supr216v.html">216v</option>
+      <option value="supr217r.html">217r</option>
+      <option value="supr217v.html">217v</option>
+      <option value="supr218r.html">218r</option>
+      <option value="supr218v.html">218v</option>
+      <option value="supr219r.html">219r</option>
+      <option value="supr219v.html">219v</option>
+      <option value="supr220r.html">220r</option>
+      <option value="supr220v.html">220v</option>
+      <option value="supr221r.html">221r</option>
+      <option value="supr221v.html">221v</option>
+      <option value="supr222r.html">222r</option>
+      <option value="supr222v.html">222v</option>
+      <option value="supr223r.html">223r</option>
+      <option value="supr223v.html">223v</option>
+      <option value="supr224r.html">224r</option>
+      <option value="supr224v.html">224v</option>
+      <option value="supr225r.html">225r</option>
+      <option value="supr225v.html">225v</option>
+      <option value="supr226r.html">226r</option>
+      <option value="supr226v.html">226v</option>
+      <option value="supr227r.html">227r</option>
+      <option value="supr227v.html">227v</option>
+      <option value="supr228r.html">228r</option>
+      <option value="supr228v.html">228v</option>
+      <option value="supr229r.html">229r</option>
+      <option value="supr229v.html">229v</option>
+      <option value="supr230r.html">230r</option>
+      <option value="supr230v.html">230v</option>
+      <option value="supr231r.html">231r</option>
+      <option value="supr231v.html">231v</option>
+      <option value="supr232r.html">232r</option>
+      <option value="supr232v.html">232v</option>
+      <option value="supr233r.html">233r</option>
+      <option value="supr233v.html">233v</option>
+      <option value="supr234r.html">234r</option>
+      <option value="supr234v.html">234v</option>
+      <option value="supr235r.html">235r</option>
+      <option value="supr235v.html">235v</option>
+      <option value="supr236r.html">236r</option>
+      <option value="supr236v.html">236v</option>
+      <option value="supr237r.html">237r</option>
+      <option value="supr237v.html">237v</option>
+      <option value="supr238r.html">238r</option>
+      <option value="supr238v.html">238v</option>
+      <option value="supr239r.html">239r</option>
+      <option value="supr239v.html">239v</option>
+      <option value="supr240r.html">240r</option>
+      <option value="supr240v.html">240v</option>
+      <option value="supr241r.html">241r</option>
+      <option value="supr241v.html">241v</option>
+      <option value="supr242r.html">242r</option>
+      <option value="supr242v.html">242v</option>
+      <option value="supr243r.html">243r</option>
+      <option value="supr243v.html">243v</option>
+      <option value="supr244r.html">244r</option>
+      <option value="supr244v.html">244v</option>
+      <option value="supr245r.html">245r</option>
+      <option value="supr245v.html">245v</option>
+      <option value="supr246r.html">246r</option>
+      <option value="supr246v.html">246v</option>
+      <option value="supr247r.html">247r</option>
+      <option value="supr247v.html">247v</option>
+      <option value="supr248r.html">248r</option>
+      <option value="supr248v.html">248v</option>
+      <option value="supr249r.html">249r</option>
+      <option value="supr249v.html">249v</option>
+      <option value="supr250r.html">250r</option>
+      <option value="supr250v.html">250v</option>
+      <option value="supr251r.html">251r</option>
+      <option value="supr251v.html">251v</option>
+      <option value="supr252r.html">252r</option>
+      <option value="supr252v.html">252v</option>
+      <option value="supr253r.html">253r</option>
+      <option value="supr253v.html">253v</option>
+      <option value="supr254r.html">254r</option>
+      <option value="supr254v.html">254v</option>
+      <option value="supr255r.html">255r</option>
+      <option value="supr255v.html">255v</option>
+      <option value="supr256r.html">256r</option>
+      <option value="supr256v.html">256v</option>
+      <option value="supr257r.html">257r</option>
+      <option value="supr257v.html">257v</option>
+      <option value="supr258r.html">258r</option>
+      <option value="supr258v.html">258v</option>
+      <option value="supr259r.html">259r</option>
+      <option value="supr259v.html">259v</option>
+      <option value="supr260r.html">260r</option>
+      <option value="supr260v.html">260v</option>
+      <option value="supr261r.html">261r</option>
+      <option value="supr261v.html">261v</option>
+      <option value="supr262r.html">262r</option>
+      <option value="supr262v.html">262v</option>
+      <option value="supr263r.html">263r</option>
+      <option value="supr263v.html">263v</option>
+      <option value="supr264r.html">264r</option>
+      <option value="supr264v.html">264v</option>
+      <option value="supr265r.html">265r</option>
+      <option value="supr265v.html">265v</option>
+      <option value="supr266r.html">266r</option>
+      <option value="supr266v.html">266v</option>
+      <option value="supr267r.html">267r</option>
+      <option value="supr267v.html">267v</option>
+      <option value="supr268r.html">268r</option>
+      <option value="supr268v.html">268v</option>
+      <option value="supr269r.html">269r</option>
+      <option value="supr269v.html">269v</option>
+      <option value="supr270r.html">270r</option>
+      <option value="supr270v.html">270v</option>
+      <option value="supr271r.html">271r</option>
+      <option value="supr271v.html">271v</option>
+      <option value="supr272r.html">272r</option>
+      <option value="supr272v.html">272v</option>
+      <option value="supr273r.html">273r</option>
+      <option value="supr273v.html">273v</option>
+      <option value="supr274r.html">274r</option>
+      <option value="supr274v.html">274v</option>
+      <option value="supr275r.html">275r</option>
+      <option value="supr275v.html">275v</option>
+      <option value="supr276r.html">276r</option>
+      <option value="supr276v.html">276v</option>
+      <option value="supr277r.html">277r</option>
+      <option value="supr277v.html">277v</option>
+      <option value="supr278r.html">278r</option>
+      <option value="supr278v.html">278v</option>
+      <option value="supr279r.html">279r</option>
+      <option value="supr279v.html">279v</option>
+      <option value="supr280r.html">280r</option>
+      <option value="supr280v.html">280v</option>
+      <option value="supr281r.html">281r</option>
+      <option value="supr281v.html">281v</option>
+      <option value="supr282r.html">282r</option>
+      <option value="supr282v.html">282v</option>
+      <option value="supr283r.html">283r</option>
+      <option value="supr283v.html">283v</option>
+      <option value="supr284r.html">284r</option>
+      <option value="supr284v.html">284v</option>
+      <option value="supr285r.html">285r</option>
+      <option value="supr285v.html">285v</option>
+   </select>
+</form>
+
+</div>
+<h3>
+            <a href="supr165r.html">&lt; </a>165v<a href="supr166r.html"> &gt; </a>
+         </h3>
+         <ol>
+            <li>
+               <span class="os">не ходатаи ни сълъ нъ самъ господь҆ сь҆па-</span>
+               <br/>
+               <span class="gk">Οὐ πρέσβυς, οὐδὲ ἄγγελος, ἀλλ'αὐτὸς ὁ κύριος ἔσω-</span>
+            </li>
+            <li>
+               <span class="os">се ѧ· Сего дѣл҄ьма и҅ мꙑ благословимъ</span>
+               <br/>
+               <span class="gk">σεν αὐτούς. Διὰ τοῦτο καὶ ἡμεῖς εὐλογοῦμέν</span>
+            </li>
+            <li>
+               <span class="os">тꙙ господи· съ о҅тцемъ и҅ съ свꙙтꙑи҅мъ доу-</span>
+               <br/>
+               <span class="gk">σε, κύριε, τὸν σὺν πατρὶ καὶ ἁγίῳ πνεύ-</span>
+            </li>
+            <li>
+               <span class="os">хомь· прѣжде вѣкъ и҅ вь҆ вѣкꙑ вѣкомь·</span>
+               <br/>
+               <span class="gk">μάτι πρὸ αἰώνων καὶ εἰς αἰῶνας αἰώνων</span>
+            </li>
+            <li>
+               <span class="os">благословешенааго прѣжде вѣкъ· и҅ до-</span>
+               <br/>
+               <span class="gk">εὐλογημένον·  πρὸ μὲν τῶν αἰώνων καὶ μέχρι τῆς</span>
+            </li>
+            <li>
+               <span class="os">сели беспль҆ть҆но· нꙑнꙗ же и҅ вь҆ вѣкꙑ· съ</span>
+               <br/>
+               <span class="gk">δεῦρο ἀσωμάτως·  τανὺν δὲ, καὶ εἰς αἰῶνας μετὰ</span>
+            </li>
+            <li>
+               <span class="os">свꙙтꙑи҅мъ· и҅ бес прѣмѣнꙑ· и҅ беꙁъ раꙁлѫ-</span>
+               <br/>
+               <span class="gk">τῆς θείας καὶ ἀμεταβόλου καὶ ἀμε-</span>
+            </li>
+            <li>
+               <span class="os">кꙑ сѫштии҅мъ вь҆пль҆чении҅мъ ⁘</span>
+               <br/>
+               <span class="gk">ρίστου σου σαρκώσεω·ς.</span>
+            </li>
+            <li>
+               <span class="os">Нъ да видимъ по томь҆· что глагол҄етъ свꙙтоѥ</span>
+               <br/>
+               <span class="gk">Ἴδωμεν καὶ τὰ ἑξῆς. Τί λέγει ὁ θειότατος</span>
+            </li>
+            <li>
+               <span class="os">е҅уа҅г҄елиѥ҆· въшъдъшоу о̑убо господеви</span>
+               <br/>
+               <span class="gk">εὐαγγελιστής ; Εἰσελθόντος γάρ ... τοῦ κυρίου</span>
+            </li>
+            <li>
+               <span class="os">въ црь҆къве· придошꙙ к н҄емоу слѣпии҆</span>
+               <br/>
+               <span class="gk">εἰς τὸ ἱερόν, προσῆλθον αὐτῷ τυφλοὶ</span>
+            </li>
+            <li>
+               <span class="os">и҅ хромии҆· и҅ и҅сцѣли ѧ вь҆сꙙ· видѣвъше же</span>
+               <br/>
+               <span class="gk">καὶ χωλοί, καὶ ἐθεράπευσεν  αὐτοὺς  ἰδόντες δὲ</span>
+            </li>
+            <li>
+               <span class="os">старѣи҅шинꙑ молитвь҆никомъ· и҅ фари-</span>
+               <br/>
+               <span class="gk">οἱ ἀρχιερεῖς καὶ οἱ  φαρι-</span>
+            </li>
+            <li>
+               <span class="os">сеи҆ чоудеса ꙗ҅же сътвори· и҅ дѣти ꙁовѫ-</span>
+               <br/>
+               <span class="gk">σαῖοι τὰ θαυμάσια ἃ ἐποίησε, καὶ τοὺς παῖδας κράζον-</span>
+            </li>
+            <li>
+               <span class="os">штꙙ и҅ глагол҄ѫштꙙ о҅сан· на сꙑноу давꙑ-</span>
+               <br/>
+               <span class="gk">τας καὶ λέγοντας, ὡσαννὰ τῷ υἱῷ Δα-</span>
+            </li>
+            <li>
+               <span class="os">довъ· благословь҆ѥ҅нъ грꙙдꙑи҆ въ и҅мꙙ го-</span>
+               <br/>
+               <span class="gk">νΐδ, εὐλογημένος ὁ ἐρχόμενος ἐν  ὀνόματι κυ-</span>
+            </li>
+            <li>
+               <span class="os">сподь҆н҄е· не сътрьпѣшꙙ того чь҆сти· тѣ-</span>
+               <br/>
+               <span class="gk">ρίου, οὐκ ἤνεγκαν τὴν τούτου τιμήν· ὅ-</span>
+            </li>
+            <li>
+               <span class="os">мъ и҅ пришъдъше к н҄емоу глаголаа҅хѫ·</span>
+               <br/>
+               <span class="gk">θεν προσελθόντες αὐτῷ εἶπον·</span>
+            </li>
+            <li>
+               <span class="os">не слꙑшиши ли что сии глагол҄ѫтъ· нѣ</span>
+               <br/>
+               <span class="gk">Οὐκ ἀκούεις τί οὗτοι λέγουσιν; Οὐ</span>
+            </li>
+            <li>
+               <span class="os">ли ти· тꙙжъко        славимоу· нѣ ли</span>
+               <br/>
+               <span class="gk">βαρύνῃ δοξαζόμενος ὡς θεός; οὐκ</span>
+            </li>
+            <li>
+               <span class="os">ти· печаль҆но слꙑшꙙште о҅тъ беꙁълобь҆-</span>
+               <br/>
+               <span class="gk">ἄχθῃ ἀκούων παρὰ τῶν ἀκά-</span>
+            </li>
+            <li>
+               <span class="os">нъ дѣтии҆· ꙗ҅же ѥ҅дномоу богоу лѣпа·</span>
+               <br/>
+               <span class="gk">κων τὰ τῷ θεῷ καὶ μόνῳ πρέποντα;</span>
+            </li>
+            <li>
+               <span class="os">не повѣда ли прѣжде богъ пророкомъ·</span>
+               <br/>
+               <span class="gk">οὐ πάλαι δεδήλωκεν ὁ θεὸς διὰ τοῦ προφήτου·</span>
+            </li>
+            <li>
+               <span class="os">ꙗ҅ко славꙑ своѥ҅ѧ҆ и҅номоу не дамъ҆· то</span>
+               <br/>
+               <span class="gk">Τὴν δόξαν μου ἑτέρῳ οὐ δώσω  καὶ</span>
+            </li>
+            <li>
+               <span class="os">како тꙑ чловѣкъ сꙑ самъ сꙙ твориши бо-</span>
+               <br/>
+               <span class="gk">Πῶς σὺ ἄνθρωπος ὢν ποιεῖς σεαυτὸν θε-</span>
+            </li>
+            <li>
+               <span class="os">гъ· нъ что противѫ томоу трь҆пѣливꙑи҆·</span>
+               <br/>
+               <span class="gk">όν ; Ἀλλὰ τί πρὸς ταῦτα ὁ μακρόθυμος,</span>
+            </li>
+            <li>
+               <span class="os">тъштивꙑи҆ на милость҆· а҅ поꙁдь҆нъ на</span>
+               <br/>
+               <span class="gk">ὁ πολὺς ἐν ἐλέει, καὶ βραδὺς εἰς</span>
+            </li>
+            <li>
+               <span class="os">гнѣвъ· тръпитъ вь҆ꙁбѣсь҆нѣвъшии҆-</span>
+               <br/>
+               <span class="gk">ὀργήν; Ἀνέχεται τῶν μεμηνό-</span>
+            </li>
+            <li>
+               <span class="os">мъ· цѣлитъ о҅тъвѣтомъ о҅бꙙштрениѥ҆·</span>
+               <br/>
+               <span class="gk">των, ἀναστέλλει  ἀπολογίᾳ τὴν φλεγμονήν,</span>
+            </li>
+            <li>
+               <span class="os">попинаѥ писаниꙗ· прѣдьи҅ꙁводитъ съ-</span>
+               <br/>
+               <span class="gk">ἀνθυπομνήσκει γραφάς, προφέρει μαρ-</span>
+            </li>
+         </ol>
+         <hr/>
+         <p>Iohannes Chrysostomus· In ramos palmarum homilia</p>
+      </div>
+      <div id="image">
+         <img id="smallImage"
+              src="http://suprasliensis.obdurodon.org/images/supr165v.jpg"
+              alt="Image of 165v"
+              onload="setupMagnifier();"/>
+         <div id="largeImage" style="background-image:url(http://suprasliensis.obdurodon.org/images/supr165v.jpg);"/>
+      </div>
+   </body>
+</html>

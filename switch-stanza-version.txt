@@ -1,0 +1,18 @@
+# go to the stanza-version (ENV)-directory
+
+# create ENV(iroment)
+
+# Linux
+# python -m venv stanza_env_1.9
+# source stanza_env_1.9/bin/activate
+# pip install stanza==1.9.0
+
+# Windows
+# python -m venv stanza_env_1.9
+# stanza_env_1.9\Scripts\activate
+# pip install stanza==1.9.0
+
+# see the Version: python -c "import stanza; print(stanza.__version__)"
+
+
+# deactivate
