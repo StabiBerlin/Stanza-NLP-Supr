@@ -116,18 +116,13 @@ The article discusses methodological challenges, NLP evaluation metrics, and lin
 
 ## License
 
-- Source code: MIT License
-- Input texts: Derived from `suprasliensis.obdurodon.org` (respect original project’s copyright)
+- All Python scripts and original analysis code in this repository are released under the **MIT License**.  
+- Input texts: Derived from `suprasliensis.obdurodon.org` (maintained by David J. Birnbaum)
 
+These texts are licensed under the  
+**Creative Commons BY-NC-SA 3.0 Unported License**  
+(Attribution – NonCommercial – ShareAlike).
 
-### Source Code
-All Python scripts and original analysis code in this repository are released under the **MIT License**.  
-You are free to use, modify, and distribute the code with proper attribution.
-
-### Input Texts (Codex Suprasliensis)
-The transcribed texts used in this project are derived from  
-**[http://suprasliensis.obdurodon.org](http://suprasliensis.obdurodon.org)**,  
-maintained by **David J. Birnbaum**.
 
 ---
 
