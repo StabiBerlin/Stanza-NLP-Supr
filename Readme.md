@@ -99,7 +99,7 @@ Three key HTML files provide insight into the corpus and annotation pipeline:
 
 This code base and its associated results form the empirical basis for the article:
 
-> **"Effektiver Einsatz von NLP-Methoden am Beispiel des Codex Suprasliensis"**
+> **„Effektiver Einsatz von NLP-Methoden am Beispiel des Codex Suprasliensis.“ Scripta & e-Scripta <a href="http://e-scripta.ilit.bas.bg/archives/year-2025/issue-25" target="_blank">25</a> (2025), 79-100.** (<a href="https://slavistik-portal.de/doku/Neumann_e-Scripta_2025_1%20proof-AJ-5.pdf" target="_blank">fulltext</a>)
 
 The article discusses methodological challenges, NLP evaluation metrics, and linguistic phenomena revealed by the cross-linguistic comparison of the Codex.
 
